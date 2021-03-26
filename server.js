@@ -1,19 +1,14 @@
-const express = require('express')
-const app = express()
-const fs = require('fs');
-var path = require('path');
-const port = 34;
+var express = require('express');
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
+var app = express();
 
-app.post('/tk', function(request, respond) {
-    clientInformation.login("");
-    console.log('Logged');
-});
+app.get('/process_get', function (req, res) {
+    token = req.query['token1'];
+    console.log(token)
+})
 
-
-app.listen(port, () => {
-  console.log(`Pour lancer le bot, allez sur ce site : http://localhost:${port}`)
+var server = app.listen(8000, function () {  
+  var host = server.address().address  
+  var port = server.address().port  
+  console.log("Le serveur est lancé sur le port :", port)  
 })
